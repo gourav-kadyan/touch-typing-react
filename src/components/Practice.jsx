@@ -32,12 +32,14 @@ const Practice = () => {
   }, [timer, startTime]);
 
   const calculateTypingSpeed = () => {
-    const totalWordsTyped = typingGroundValue.trim().split(/\s+/).length;
+    const totalWordsTyped = typingGroundValue.split(/\s+/).filter(word => word !== '').length;
+    console.log(totalWordsTyped)
     const timeInSeconds = (endTime - startTime) / 1000;
     const typingSpeed = Math.round((totalWordsTyped / timeInSeconds) * 60);
   
     return typingSpeed >= 0 ? typingSpeed : 0;
   };
+  
   
 
   const calculateAccuracy = () => {
@@ -59,16 +61,17 @@ const Practice = () => {
 
   const endTypingTest = () => {
     setEndTime(Date.now());
-
+    setTypingGroundValue('');
+  
     const typingSpeed = calculateTypingSpeed();
     const accuracy = calculateAccuracy();
-
+  
     setScore(`Your typing speed is ${typingSpeed} words per minute. Accuracy: ${accuracy}%`);
     setCurrentSentence('');
-    setTypingGroundValue('');
     setStartTime(0);
     setTimer(300); // Reset timer to 5 minutes
   };
+  
 
   const handleButtonClick = () => {
     if (startTime === 0) {
