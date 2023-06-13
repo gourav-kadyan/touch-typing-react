@@ -84,12 +84,12 @@ const Practice = () => {
   };
 
   return (
-    <div>
+    <div className='main-body'>
       <h2>Typing Speed Test</h2>
       <p id="timer">Timer: {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}</p>
       <p id="showSentence">{currentSentence}</p>
 
-      <div>
+      <div className='typing-section'>
         <label htmlFor="textarea">Type the sentence:</label>
         <textarea
           name="textarea"
