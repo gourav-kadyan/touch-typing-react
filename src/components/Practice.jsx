@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './practice.css'
 
 const Practice = () => {
   const [startTime, setStartTime] = useState(0);
@@ -91,7 +92,7 @@ const Practice = () => {
 
       <div className='typing-section
       '>
-        <label htmlFor="textarea">Type the sentence:</label>
+        <label id='textareamsg' htmlFor="textarea">Type the sentence:</label>
         <textarea
           name="textarea"
           id="textarea"
@@ -103,7 +104,7 @@ const Practice = () => {
         ></textarea>
       </div>
 
-      <button onClick={handleButtonClick}>{startTime === 0 ? 'Start' : 'Stop'}</button>
+      <button id='btn' onClick={handleButtonClick}>{startTime === 0 ? 'Start' : 'Stop'}</button>
 
       <p id="score">{score}</p>
     </div>
