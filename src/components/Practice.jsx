@@ -33,8 +33,8 @@ const Practice = () => {
 
   const calculateTypingSpeed = () => {
     const totalWordsTyped = typingGroundValue.split(/\s+/).filter(word => word !== '').length;
-    console.log(totalWordsTyped)
-    const timeInSeconds = (endTime - startTime) / 1000;
+    console.log(timer)
+    const timeInSeconds = (300 - timer) ;
     const typingSpeed = Math.round((totalWordsTyped / timeInSeconds) * 60);
   
     return typingSpeed >= 0 ? typingSpeed : 0;
@@ -71,6 +71,7 @@ const Practice = () => {
     setStartTime(0);
     setTimer(300); // Reset timer to 5 minutes
   };
+  
   
 
   const handleButtonClick = () => {
